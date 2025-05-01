@@ -1,3 +1,4 @@
+"use client"
 import { PatientList } from "@/components/patients/patient-list"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
