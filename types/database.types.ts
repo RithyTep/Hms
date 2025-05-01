@@ -1,0 +1,63 @@
+export interface Department {
+  id: number
+  name: string
+  description: string | null
+}
+
+export interface Staff {
+  id: number
+  staff_id: string
+  name: string
+  email: string
+  phone: string | null
+  department_id: number | null
+  role: string
+  specialty: string | null
+  status: string
+  created_at: string
+  department?: Department
+}
+
+export interface Patient {
+  id: number
+  patient_id: string
+  name: string
+  email: string | null
+  phone: string | null
+  date_of_birth: string | null
+  gender: string | null
+  address: string | null
+  status: string
+  created_at: string
+}
+
+export interface Appointment {
+  id: number
+  appointment_id: string
+  patient_id: number
+  staff_id: number
+  department_id: number | null
+  appointment_date: string
+  appointment_time: string
+  status: string
+  type: string | null
+  notes: string | null
+  created_at: string
+  patient?: Patient
+  staff?: Staff
+  department?: Department
+}
+
+export interface MedicalRecord {
+  id: number
+  record_id: string
+  patient_id: number
+  staff_id: number
+  diagnosis: string | null
+  treatment: string | null
+  prescription: string | null
+  notes: string | null
+  created_at: string
+  patient?: Patient
+  staff?: Staff
+}
