@@ -3,18 +3,20 @@
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Loader2 } from "lucide-react"
+import useComponentRoute from "@/hooks/use-component-route"
 
 export default function Home() {
   const router = useRouter()
+  const { dashboard, login } = useComponentRoute()
 
   useEffect(() => {
     // Check if user is logged in
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true"
 
     if (isLoggedIn) {
-      router.push("/dashboard")
+      router.push(dashboard)
     } else {
-      router.push("/login")
+      router.push(login)
     }
   }, [router])
 

@@ -6,8 +6,11 @@ import { ReportsPatients } from "@/components/reports/reports-patients"
 import { ReportsFinancial } from "@/components/reports/reports-financial"
 import { ReportsStaff } from "@/components/reports/reports-staff"
 import { ReportsInventory } from "@/components/reports/reports-inventory"
+import useComponentRoute from "@/hooks/use-component-route"
 
 export default function ReportsPage() {
+  const { reports } = useComponentRoute()
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">

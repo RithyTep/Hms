@@ -10,6 +10,7 @@ export async function GET(request: Request) {
     let query = supabase.from("medical_records").select("*, patients(*), staff(*)")
 
     if (patientId) {
+      //@ts-ignore
       query = query.eq("patient_id", patientId)
     }
 

@@ -16,9 +16,11 @@ import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
+import useComponentRoute from "@/hooks/use-component-route"
 
 export default function NewPatientPage() {
   const router = useRouter()
+  const { patients } = useComponentRoute()
   const [isLoading, setIsLoading] = useState(false)
   const [date, setDate] = useState<Date>()
 
@@ -56,7 +58,7 @@ export default function NewPatientPage() {
         description: `Patient ${patient.name} has been created.`,
       })
 
-      router.push("/patients")
+      router.push(patients.path(''))
       router.refresh()
     } catch (error) {
       toast({

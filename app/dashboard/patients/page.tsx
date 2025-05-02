@@ -4,14 +4,17 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Plus } from "lucide-react"
 import Link from "next/link"
+import useComponentRoute from "@/hooks/use-component-route"
 
 export default function PatientsPage() {
+  const { patients } = useComponentRoute()
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Patients</h1>
         <Button asChild>
-          <Link href="/patients/new">
+          <Link href={patients.new}>
             <Plus className="mr-2 h-4 w-4" />
             Add Patient
           </Link>

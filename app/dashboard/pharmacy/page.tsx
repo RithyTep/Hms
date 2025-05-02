@@ -7,14 +7,17 @@ import Link from "next/link"
 import { MedicationsList } from "@/components/pharmacy/medications-list"
 import { SuppliersList } from "@/components/pharmacy/suppliers-list"
 import { OrdersList } from "@/components/pharmacy/orders-list"
+import useComponentRoute from "@/hooks/use-component-route"
 
 export default function PharmacyPage() {
+  const { pharmacy } = useComponentRoute()
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Pharmacy</h1>
         <Button asChild>
-          <Link href="/pharmacy/medications/new">
+          <Link href={pharmacy.medications.new}>
             <Plus className="mr-2 h-4 w-4" />
             Add Medication
           </Link>

@@ -7,14 +7,16 @@ import Link from "next/link"
 import { InvoicesList } from "@/components/billing/invoices-list"
 import { PaymentsList } from "@/components/billing/payments-list"
 import { InsuranceList } from "@/components/billing/insurance-list"
+import useComponentRoute from "@/hooks/use-component-route"
 
 export default function BillingPage() {
+  const { billing } = useComponentRoute()
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Billing</h1>
         <Button asChild>
-          <Link href="/billing/invoices/new">
+          <Link href={billing.invoices.new}>
             <Plus className="mr-2 h-4 w-4" />
             Create Invoice
           </Link>
